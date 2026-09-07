@@ -1,18 +1,10 @@
 # Kiro Crew
 
-## Purpose / Propósito
-
-**PT:** Mostrar **como montar um time de agents no Kiro** — papéis, handoffs e HITL — sem virar receita de cliente. Complementa o [playbook](https://github.com/tiagovilasboas/kiro-playbook) (skills/steerings) e o [tour](https://github.com/tiagovilasboas/kiro-tour-voomp) (onboarding).
-
-**EN:** Show **how to run a multi-agent crew in Kiro** — roles, handoffs, HITL — without client IP. Complements the [playbook](https://github.com/tiagovilasboas/kiro-playbook) (skills/steerings) and the [tour](https://github.com/tiagovilasboas/kiro-tour-voomp) (onboarding).
-
-**Não é / Not:** UI visualizer (`goe-agents`) · monorepo Jarvis · dump de prompts soltos.
+Multi-agent crew pattern — roles, handoffs, HITL. Kiro is the example host.
 
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI
 
----
-
-## Pattern vs example host
+## Pattern vs host
 
 | Layer | Meaning |
 |---|---|
@@ -21,9 +13,7 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 
 Contracts live in `crew/`. To drop the pattern into another agentic IDE, start from [`docs/paste-into-host.md`](docs/paste-into-host.md).
 
----
-
-## Crew (default)
+## Crew
 
 | Role | Job | Writes? |
 |---|---|---|
@@ -32,9 +22,7 @@ Contracts live in `crew/`. To drop the pattern into another agentic IDE, start f
 | **Reviewer** | Diff vs guardrails | Comment only |
 | **Ops** | CI, evals, ship checklist | Yes → HITL |
 
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · end-to-end walkthrough: [`docs/walkthrough.md`](docs/walkthrough.md) · agent layout: [`AGENTS.md`](AGENTS.md)
-
----
+Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · end-to-end walkthrough: [`docs/walkthrough.md`](docs/walkthrough.md)
 
 ## Start
 
@@ -44,8 +32,6 @@ Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew
 4. Implementer works one task; Reviewer returns findings with `path:line` or LGTM.
 5. Ops ships only after HITL on privileged writes.
 6. Optional: paste the starter from [`docs/paste-into-host.md`](docs/paste-into-host.md) into your host.
-
----
 
 ## Related
 
@@ -61,3 +47,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how to improve roles, handoffs, and
 ## License
 
 [MIT](LICENSE)
+
+## AGENTS.md
+
+Agent notes: [`AGENTS.md`](AGENTS.md).
