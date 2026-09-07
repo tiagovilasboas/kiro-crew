@@ -44,7 +44,11 @@ if_no_answer: wait — do not proceed
 3. A rejected ask returns to Planner or Implementer with the reason — do not retry the same privileged write.
 4. Deferred asks stay paused; do not time out into approve.
 
-Filled records (same example run as [`docs/walkthrough.md`](../docs/walkthrough.md)):
+## Filled records
+
+Same example run as [`docs/walkthrough.md`](../docs/walkthrough.md). Template fields above stay the contract; these are typed cards.
+
+Approve:
 
 ```
 action: merge
