@@ -1,6 +1,6 @@
 # Handoffs
 
-Each hop is a **message protocol**: named next owner + typed payload. No silent handoff. Write the live card on [`board.md`](board.md); see a filled walkthrough in [`board.example.md`](board.example.md).
+Each hop is a **message protocol**: named next owner + typed payload. No silent handoff. Write the live card on [`board.md`](board.md). Board shape: [`board.example.md`](board.example.md). Full loop with filled payloads: [`docs/walkthrough.md`](../docs/walkthrough.md).
 
 Pattern references: [orchestrator → workers](https://www.anthropic.com/engineering/building-effective-agents), [task expected output](https://docs.crewai.com), [named conversation handoff](https://microsoft.github.io/autogen/).
 
@@ -9,10 +9,12 @@ Pattern references: [orchestrator → workers](https://www.anthropic.com/enginee
 | Hop | Next owner | Payload (minimum) | Expected output |
 |---|---|---|---|
 | Planner → Implementer | Implementer | Task card: ID, scope, files likely, done-when, out-of-scope | One in-scope diff + what/why/risk |
+| Implementer → Planner | Planner | Why the card is unworkable (missing done-when / scope) | Revised card or parked goal |
 | Implementer → Reviewer | Reviewer | Diff locator + summary (what / why / risk) + done-when claim | Findings with `path:line`, or LGTM + residual risks |
 | Reviewer → Implementer | Implementer | Findings list (location, problem, fix direction) | Reworked diff addressing each finding |
 | Reviewer → Ops | Ops | Approved change id + residual risks + CI hint | Ship checklist + HITL ask |
 | Ops → Human | Human | Merge/deploy ask: blast radius, rollback, residual risks | Explicit approve / reject / defer |
+| Human → Ops | Ops | `decision` + `decided_by` (reject/defer include reason) | Merge/deploy, or return to Planner — never invent this hop |
 
 Rule: if a hop has no owner or no expected output, stop and fix the board before continuing.
 
@@ -69,6 +71,16 @@ decision_needed: approve | reject | defer
 if_no_answer: wait (do not merge)
 ```
 
+### Human → Ops (resume)
+
+```
+decision: approve
+decided_by: maintainer
+action: merge
+```
+
+Silence is not this hop. A full reject/defer + rework loop: [`docs/walkthrough.md`](../docs/walkthrough.md).
+
 ## Anti-patterns
 
 | Anti-pattern | Fix |
@@ -77,3 +89,4 @@ if_no_answer: wait (do not merge)
 | Reviewer says "LGTM" in chat only | Persist verdict + residual risks on the board or PR |
 | Ops merges because CI is green | HITL still required for default-branch merge |
 | Two Implementer tasks in flight, one PR | One task → one reviewable change unless Planner says otherwise |
+| Implementer guesses a missing done-when | Hop back to Planner; do not invent acceptance |

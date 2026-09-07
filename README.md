@@ -32,17 +32,18 @@ Contracts live in `crew/`. To drop the pattern into another agentic IDE, start f
 | **Reviewer** | Diff vs guardrails | Comment only |
 | **Ops** | CI, evals, ship checklist | Yes → HITL |
 
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · agent layout: [`AGENTS.md`](AGENTS.md)
+Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · end-to-end walkthrough: [`docs/walkthrough.md`](docs/walkthrough.md) · agent layout: [`AGENTS.md`](AGENTS.md)
 
 ---
 
 ## Start
 
-1. Pick a goal (one sentence).
-2. Planner fills [`crew/board.md`](crew/board.md) (shape reference: [`crew/board.example.md`](crew/board.example.md)).
-3. Implementer works one task; Reviewer returns findings with `path:line` or LGTM.
-4. Ops ships only after HITL on privileged writes.
-5. Optional: paste the starter from [`docs/paste-into-host.md`](docs/paste-into-host.md) into your host.
+1. Read the end-to-end loop once: [`docs/walkthrough.md`](docs/walkthrough.md) (Planner → Implementer → Reviewer → Ops → Human, filled payloads).
+2. Pick a goal (one sentence).
+3. Planner fills [`crew/board.md`](crew/board.md) (shape reference: [`crew/board.example.md`](crew/board.example.md)).
+4. Implementer works one task; Reviewer returns findings with `path:line` or LGTM.
+5. Ops ships only after HITL on privileged writes.
+6. Optional: paste the starter from [`docs/paste-into-host.md`](docs/paste-into-host.md) into your host.
 
 ---
 
