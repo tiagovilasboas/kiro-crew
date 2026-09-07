@@ -20,7 +20,7 @@ Four roles only unless you prove a gap:
 ## Paste checklist
 
 1. Copy `crew/roles.md`, `crew/handoffs.md`, `crew/hitl.md`, `crew/board.md` into the host workspace (or link them).
-2. Planner fills the board (see shape in `crew/board.example.md`).
+2. Planner fills the board (shape: `crew/board.example.md`; full loop: `docs/walkthrough.md`).
 3. Every hop names **next owner** + **payload** (no silent handoff).
 4. Reviewer never merges; Ops never ships on silence.
 5. HITL before: default-branch merge, deploy/publish, secrets/billing/messaging-as-user, deletes.

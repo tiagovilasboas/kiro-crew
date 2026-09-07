@@ -1,6 +1,6 @@
 # Board template
 
-Blank card the Planner fills. For a filled walkthrough, see [`board.example.md`](board.example.md).
+Blank card the Planner fills. Board shape: [`board.example.md`](board.example.md). Hop-by-hop run: [`docs/walkthrough.md`](../docs/walkthrough.md).
 
 ## Goal
 _One sentence._

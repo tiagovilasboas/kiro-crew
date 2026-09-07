@@ -2,7 +2,7 @@
 
 Filled walkthrough for the blank template in [`board.md`](board.md). Goal is realistic and harness-agnostic: improve this crew’s own docs so a host can paste roles without inventing handoffs.
 
-Use as a **shape reference**. Copy the structure into your host; do not treat the task IDs as live work unless you are maintaining this repo.
+Use as a **shape reference**. Copy the structure into your host; do not treat the task IDs as live work unless you are maintaining this repo. For the hop-by-hop conversation (Planner → Human) with filled payloads, see [`docs/walkthrough.md`](../docs/walkthrough.md) — that run uses a different example goal.
 
 ---
 
