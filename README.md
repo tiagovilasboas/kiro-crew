@@ -21,7 +21,7 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 | **Reviewer** | Diff vs guardrails | Comment only |
 | **Ops** | CI, evals, ship checklist | Yes → HITL |
 
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md)
+Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · agent layout: [`AGENTS.md`](AGENTS.md)
 
 ---
 
@@ -40,6 +40,10 @@ Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew
 - [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops
 - [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai)
 
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how to improve roles, handoffs, and HITL docs.
+
 ## License
 
-MIT
+[MIT](LICENSE)
