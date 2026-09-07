@@ -5,15 +5,17 @@ This repository documents a **harness-agnostic** multi-agent crew: roles, handof
 Contributing language for this file, issue forms, and pull requests is **English**. Commands and paths stay in English fences.
 
 ```
-crew/roles.md      who does what, and who may write
-crew/handoffs.md   how work moves between roles
-crew/hitl.md       fail-closed human gates
-crew/board.md      task-card template (fill it in a later stage)
+crew/roles.md           who does what, and who may write
+crew/handoffs.md        how work moves between roles
+crew/hitl.md            fail-closed human gates
+crew/board.md           blank task-card template
+crew/board.example.md   filled board walkthrough
+docs/paste-into-host.md short paste starter for any host
 ```
 
 ## What belongs here
 
-Improvements to the four files above — clearer jobs, explicit message contracts, stricter gates.
+Improvements to the crew contracts above — clearer jobs, explicit message contracts, stricter gates, better examples, and a clearer paste starter.
 
 This repo is **not** a vendor SDK, a prompt dump, or a client playbook. Do not add framework-specific APIs, secrets, or private process detail.
 
