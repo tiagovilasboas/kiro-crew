@@ -10,12 +10,13 @@ crew/handoffs.md        how work moves between roles
 crew/hitl.md            fail-closed human gates
 crew/board.md           blank task-card template
 crew/board.example.md   filled board walkthrough
+docs/walkthrough.md     end-to-end hop-by-hop run (filled payloads)
 docs/paste-into-host.md short paste starter for any host
 ```
 
 ## What belongs here
 
-Improvements to the crew contracts above — clearer jobs, explicit message contracts, stricter gates, better examples, and a clearer paste starter.
+Improvements to the crew contracts above — clearer jobs, explicit message contracts, stricter gates, better examples, a clearer end-to-end walkthrough, and a clearer paste starter.
 
 This repo is **not** a vendor SDK, a prompt dump, or a client playbook. Do not add framework-specific APIs, secrets, or private process detail.
 
@@ -51,12 +52,14 @@ Treat each hop as a **message protocol**, not a vibe:
 | Hop | Payload (minimum) |
 |---|---|
 | Planner → Implementer | Task card: scope, likely files, done-when |
+| Implementer → Planner | Why the card is unworkable (missing done-when / scope) |
 | Implementer → Reviewer | Diff + what / why / risk |
 | Reviewer → Implementer | Findings with `path:line`, or LGTM |
 | Reviewer → Ops | Approved change + residual risks |
 | Ops → Human | Merge / deploy ask (HITL) |
+| Human → Ops | Explicit `decision` + `decided_by` (never invent) |
 
-Rule: no silent handoff. Write the card on `crew/board.md`. If a hop has no owner or no expected output, the docs are incomplete.
+Rule: no silent handoff. Write the card on `crew/board.md`. If a hop has no owner or no expected output, the docs are incomplete. A full filled run lives in `docs/walkthrough.md`.
 
 ## How to improve HITL (`crew/hitl.md`)
 

@@ -44,6 +44,38 @@ if_no_answer: wait — do not proceed
 3. A rejected ask returns to Planner or Implementer with the reason — do not retry the same privileged write.
 4. Deferred asks stay paused; do not time out into approve.
 
+## Filled records
+
+Same example run as [`docs/walkthrough.md`](../docs/walkthrough.md). Template fields above stay the contract; these are typed cards.
+
+Approve:
+
+```
+action: merge
+target: branch docs/security-md → default branch
+blast_radius: documentation only (SECURITY.md + README link)
+rollback: revert the merge commit
+residual_risks: forks may lack private reporting; usual docs drift
+decision: approve
+decided_by: maintainer
+if_no_answer: wait — do not proceed
+```
+
+Reject (do not retry the same privileged write):
+
+```
+action: merge
+target: branch docs/security-md → default branch
+blast_radius: documentation only
+rollback: n/a (not merged)
+residual_risks: publishing a reporting path before private reporting is enabled
+decision: reject
+decided_by: maintainer
+reason: Enable private reporting on origin first.
+next_owner: Planner
+if_no_answer: wait — do not proceed
+```
+
 ## Examples
 
 **Docs-only merge (still HITL)**  
