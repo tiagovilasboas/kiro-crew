@@ -5,10 +5,12 @@ This repo is a **crew pattern**, not a Kiro-only recipe. Map the same four roles
 ## Layout
 
 ```
-crew/roles.md      Planner · Implementer · Reviewer · Ops
-crew/handoffs.md   explicit hops (owner + payload)
-crew/hitl.md       fail-closed interrupts before privileged writes
-crew/board.md      task card the Planner fills
+crew/roles.md           Planner · Implementer · Reviewer · Ops
+crew/handoffs.md        explicit hops (owner + payload)
+crew/hitl.md            fail-closed interrupts before privileged writes
+crew/board.md           blank task card the Planner fills
+crew/board.example.md   filled walkthrough of the board
+docs/paste-into-host.md short starter to paste into another host
 ```
 
 ## Pattern vs example host
@@ -20,4 +22,4 @@ crew/board.md      task card the Planner fills
 
 Do not encode vendor APIs here. If a host needs extra files (agent configs, skills), keep them out of `crew/` and keep the contracts above as the source of truth.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) before changing crew docs.
+See [CONTRIBUTING.md](CONTRIBUTING.md) before changing crew docs. Paste starter: [docs/paste-into-host.md](docs/paste-into-host.md).
