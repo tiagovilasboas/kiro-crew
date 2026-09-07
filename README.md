@@ -12,25 +12,37 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 
 ---
 
+## Pattern vs example host
+
+| Layer | Meaning |
+|---|---|
+| **Pattern** | Orchestrator (Planner) → workers (Implementer / Ops) → evaluator (Reviewer) → human gate |
+| **Example host** | Kiro (this repo’s name). Skills and steerings live in whatever the host provides. |
+
+Contracts live in `crew/`. To drop the pattern into another agentic IDE, start from [`docs/paste-into-host.md`](docs/paste-into-host.md).
+
+---
+
 ## Crew (default)
 
 | Role | Job | Writes? |
 |---|---|---|
-| **Planner** | Decompose goal → tasks | No |
-| **Implementer** | Code / docs in scope | Yes → HITL |
+| **Planner** | Decompose goal → tasks | Board only |
+| **Implementer** | Code / docs in scope | Yes → review |
 | **Reviewer** | Diff vs guardrails | Comment only |
 | **Ops** | CI, evals, ship checklist | Yes → HITL |
 
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · agent layout: [`AGENTS.md`](AGENTS.md)
+Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · agent layout: [`AGENTS.md`](AGENTS.md)
 
 ---
 
 ## Start
 
 1. Pick a goal (one sentence).
-2. Planner fills `crew/board.md` template.
-3. Implementer works one task; Reviewer uses [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) skills.
-4. Ops ships only after HITL on writes.
+2. Planner fills [`crew/board.md`](crew/board.md) (shape reference: [`crew/board.example.md`](crew/board.example.md)).
+3. Implementer works one task; Reviewer returns findings with `path:line` or LGTM.
+4. Ops ships only after HITL on privileged writes.
+5. Optional: paste the starter from [`docs/paste-into-host.md`](docs/paste-into-host.md) into your host.
 
 ---
 
@@ -39,6 +51,7 @@ Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew
 - [kiro-playbook](https://github.com/tiagovilasboas/kiro-playbook) · [kiro-tour-voomp](https://github.com/tiagovilasboas/kiro-tour-voomp)
 - [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops
 - [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai)
+- Pattern refs (not dependencies): [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [CrewAI docs](https://docs.crewai.com) · [AutoGen](https://microsoft.github.io/autogen/) · [LangGraph HITL](https://langchain-ai.github.io/langgraph/)
 
 ## Contributing
 
