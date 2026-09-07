@@ -1,0 +1,55 @@
+name: Improve crew
+description: Propose a change to roles, handoffs, HITL gates, or the board template.
+title: "[crew] "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to improve the crew pattern. Write in English.
+        See [CONTRIBUTING.md](https://github.com/tiagovilasboas/kiro-crew/blob/main/CONTRIBUTING.md).
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which crew doc should change?
+      options:
+        - roles
+        - handoffs
+        - hitl
+        - board
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: gap
+    attributes:
+      label: Gap
+      description: What is missing or ambiguous? (owner, expected output, write boundary, or a skippable HITL gate)
+      placeholder: Reviewer → Ops has no residual-risk field, so Ops cannot decide whether to escalate.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Smallest doc edit that closes the gap. Prefer one extra rule or example over a new role.
+      placeholder: Add a required Residual risks line to the Reviewer → Ops hop in crew/handoffs.md.
+    validations:
+      required: true
+  - type: textarea
+    id: pattern
+    attributes:
+      label: Pattern reference (optional)
+      description: Public multi-agent / HITL material that motivates the change (orchestrator-workers, sequential handoff, interrupt/resume). Do not paste vendor APIs.
+      placeholder: https://www.anthropic.com/engineering/building-effective-agents (evaluator-optimizer)
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This is a docs/pattern change only (no vendor SDK, no client IP).
+          required: true
+        - label: HITL stays fail-closed if the change touches gates.
+          required: false
