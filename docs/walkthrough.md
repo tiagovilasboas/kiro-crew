@@ -297,6 +297,14 @@ reason: T1 has no done_when
 
 ---
 
+## Pair with siblings
+
+Same four roles. Do not copy these kits into `crew/`. Paste table: [`docs/paste-into-host.md`](paste-into-host.md).
+
+- **Reviewer** uses [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) skills: `path:line` or silence — not “looks fine”.
+- **Ops** records evidence with an [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) mindset: suites and named metrics, not vibes. Green CI is still not HITL.
+- **Layer model:** [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) (brain · workers · ops). **Desktop CoS variant:** [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture). **Curated filter:** [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai).
+
 ## Honest limits
 
 - This repo documents a crew. It does not spawn Planner for you.
@@ -304,6 +312,7 @@ reason: T1 has no done_when
 - Four roles are enough until this loop is boring. A “Researcher” or “QA” role is usually Planner or Reviewer with extra homework — see [`docs/anti-patterns.md`](anti-patterns.md).
 - Docs-only still HITL. The habit dies the first time someone merges because “it is only markdown”.
 - Residual risk on LGTM is not decoration. Ops must copy it onto the interrupt.
+- A crew without evidence is theater: Reviewer still needs `path:line` (or silence); Ops still needs a suite, not vibes.
 
 ---
 
@@ -313,6 +322,6 @@ reason: T1 has no done_when
 2. Planner fills a **new** board from [`crew/board.md`](../crew/board.md). Do not reuse the `T1` IDs above as live work unless you mean it.
 3. Run the hops in order. Persist each payload on the board or the PR.
 4. Stop at Ops → Human. Wait.
-5. If a hop looks like chat, merge-on-green, or `decided_by: auto`, stop — [`docs/anti-patterns.md`](anti-patterns.md).
+5. If a hop looks like chat, merge-on-green without Reviewer `path:line`, or `decided_by: auto`, stop — [`docs/anti-patterns.md`](anti-patterns.md).
 
 Related: filled board from Stage 1 (different goal) — [`crew/board.example.md`](../crew/board.example.md).

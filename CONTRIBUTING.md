@@ -10,9 +10,9 @@ crew/handoffs.md        how work moves between roles
 crew/hitl.md            fail-closed human gates
 crew/board.md           blank task-card template
 crew/board.example.md   filled board walkthrough
-docs/walkthrough.md     end-to-end hop-by-hop run (filled payloads)
-docs/anti-patterns.md   silent handoff · merge-on-green · invent approval
-docs/paste-into-host.md short paste starter for any host
+docs/walkthrough.md     end-to-end hop-by-hop run (filled payloads); pair with sibling kits
+docs/anti-patterns.md   silent handoff · merge-on-green · invent approval · crew without evidence
+docs/paste-into-host.md short paste starter for any host; pair with sibling kits
 ```
 
 ## What belongs here
