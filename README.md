@@ -22,17 +22,17 @@ Contracts live in `crew/`. To drop the pattern into another agentic IDE, start f
 | **Reviewer** | Diff vs guardrails | Comment only |
 | **Ops** | CI, evals, ship checklist | Yes → HITL |
 
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md)
+Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · copyable board: [`crew/board.example.md`](crew/board.example.md)
 
 ## Start
 
 | | |
 |---|---|
 | Happy path | [`docs/walkthrough.md`](docs/walkthrough.md) — Planner → Implementer → Reviewer → Ops → Human; pair with sibling kits |
-| Wrong turns | [`docs/anti-patterns.md`](docs/anti-patterns.md) — silent handoff · merge-on-green · invent approval · crew without evidence |
+| Wrong turns | [`docs/anti-patterns.md`](docs/anti-patterns.md) — silent handoff · merge-on-green · invent approval · crew without evidence · board without Reviewer evidence |
 | Other IDE | [`docs/paste-into-host.md`](docs/paste-into-host.md) — four roles + fail-closed HITL + sibling kits |
 
-One-sentence goal → Planner fills [`crew/board.md`](crew/board.md) (shape: [`crew/board.example.md`](crew/board.example.md)) → one task → Reviewer `path:line` or LGTM → Ops ships only after HITL.
+One-sentence goal → Planner fills [`crew/board.md`](crew/board.md) (copy: [`crew/board.example.md`](crew/board.example.md)) → one task → Reviewer `path:line` or LGTM → Ops ships only after HITL.
 
 ## Related
 
