@@ -1,6 +1,6 @@
 # Crew anti-patterns
 
-Companion to [`docs/walkthrough.md`](walkthrough.md) (happy path). Other IDE: [`docs/paste-into-host.md`](paste-into-host.md). Contracts stay in [`crew/roles.md`](../crew/roles.md), [`crew/handoffs.md`](../crew/handoffs.md), [`crew/hitl.md`](../crew/hitl.md). This page is three ways hosts skip the protocol.
+Companion to [`docs/walkthrough.md`](walkthrough.md) (happy path). Other IDE: [`docs/paste-into-host.md`](paste-into-host.md). Contracts stay in [`crew/roles.md`](../crew/roles.md), [`crew/handoffs.md`](../crew/handoffs.md), [`crew/hitl.md`](../crew/hitl.md). This page is four ways hosts skip the protocol.
 
 Same example goal as the walkthrough (`SECURITY.md`). Copy the **shape**. Do not treat these cards as live work on this repo.
 
@@ -78,7 +78,7 @@ decided_by:          # human fills
 if_no_answer: wait — do not merge
 ```
 
-Ops does not treat “it was green yesterday” as a skip of Reviewer, and does not merge on silence. **Crew without evidence** is the same skip: merge-on-green without Reviewer `path:line` (CI status, no locator, no suite). Pair Reviewer with AppSec skills and Ops with suites — not vibes. HITL still waits.
+Ops does not treat “it was green yesterday” as a skip of Reviewer, and does not merge on silence. **Crew without evidence** is the same skip: merge-on-green without Reviewer `path:line` (CI status, no locator, no suite). Pair Reviewer with AppSec skills and Ops with suites — not vibes. HITL still waits. A board that marks Reviewer `done` without that locator is the same theater — section 4.
 
 ---
 
@@ -104,6 +104,32 @@ note: Merge the docs. Leave private reporting as a host setting; do not invent a
 ```
 
 Reject and defer are also explicit. Defer does not age into approve. If nobody answers, there is no resume hop — the interrupt stays open.
+
+---
+
+## 4. Board without Reviewer evidence
+
+A filled task table is not a crew. If Reviewer is `done` or `LGTM` with no `path:line` and no residual risks, the board is theater. Copy the filled feature: [`crew/board.example.md`](../crew/board.example.md).
+
+**Wrong**
+
+```
+| T2 | Reviewer | Review the PR | (diff) | Looks fine | done |
+```
+
+No locator, no residual risks, next owner unnamed. Ops cannot copy evidence onto the HITL ask.
+
+**Right** — persist the verdict on the board (same shape as the filled example):
+
+```
+verdict: changes_requested
+findings:
+  - loc: src/status/handler.ts:18
+    problem: Body includes hostname. Card forbids hostnames in the JSON.
+    fix: Drop the field.
+```
+
+Then, after rework, `verdict: LGTM` plus residual risks. Ops copies those risks onto the interrupt. Silence / “looks fine” is not evidence.
 
 ---
 

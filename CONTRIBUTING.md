@@ -9,9 +9,9 @@ crew/roles.md           who does what, and who may write
 crew/handoffs.md        how work moves between roles
 crew/hitl.md            fail-closed human gates
 crew/board.md           blank task-card template
-crew/board.example.md   filled board walkthrough
+crew/board.example.md   filled feature board a peer can copy (Planner → Human)
 docs/walkthrough.md     end-to-end hop-by-hop run (filled payloads); pair with sibling kits
-docs/anti-patterns.md   silent handoff · merge-on-green · invent approval · crew without evidence
+docs/anti-patterns.md   silent handoff · merge-on-green · invent approval · crew without evidence · board without Reviewer evidence
 docs/paste-into-host.md short paste starter for any host; pair with sibling kits
 ```
 
