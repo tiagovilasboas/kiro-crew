@@ -1,6 +1,6 @@
 # Board template
 
-Blank card the Planner fills. Board shape: [`board.example.md`](board.example.md). Hop-by-hop run: [`docs/walkthrough.md`](../docs/walkthrough.md). Silent chat is not a handoff: [`docs/anti-patterns.md`](../docs/anti-patterns.md).
+Blank card the Planner fills. Copy: [`board.example.md`](board.example.md). Hop-by-hop run: [`docs/walkthrough.md`](../docs/walkthrough.md). Silent chat is not a handoff: [`docs/anti-patterns.md`](../docs/anti-patterns.md).
 
 ## Goal
 _One sentence._

@@ -22,10 +22,20 @@ Four roles only unless you prove a gap:
 ## Paste checklist
 
 1. Copy `crew/roles.md`, `crew/handoffs.md`, `crew/hitl.md`, `crew/board.md` into the host workspace (or link them).
-2. Planner fills the board (shape: `crew/board.example.md`; full loop: `docs/walkthrough.md`).
+2. Planner fills the board (copy: `crew/board.example.md`; hop movie: `docs/walkthrough.md`).
 3. Every hop names **next owner** + **payload** (no silent handoff).
 4. Reviewer never merges; Ops never ships on silence.
 5. HITL before: default-branch merge, deploy/publish, secrets/billing/messaging-as-user, deletes.
+
+## Where this card lives
+
+| | **Kiro (example host)** | **Any host (`AGENTS.md`)** |
+|---|---|---|
+| Blank | `crew/board.md` in the workspace | Same path, listed under Layout in `AGENTS.md` |
+| Live filled card | Duplicate or PR description the human can reopen tomorrow | Persist next to `AGENTS.md` or on the PR — chat is not the board |
+| Skills / agent config | Host skills / steerings — **outside** `crew/` | Host agent files — **outside** `crew/` |
+
+Copy the filled feature: [`crew/board.example.md`](../crew/board.example.md). Do not encode vendor APIs inside `crew/`.
 
 ## Pair with siblings
 

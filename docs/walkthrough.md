@@ -2,7 +2,7 @@
 
 One sitting. Four roles. Every hop is a **named next owner + a filled payload** — not angle brackets, not “just fix it”.
 
-This file is the movie. The contracts stay in [`crew/roles.md`](../crew/roles.md), [`crew/handoffs.md`](../crew/handoffs.md), [`crew/hitl.md`](../crew/hitl.md). The board shape is [`crew/board.md`](../crew/board.md).
+This file is the movie. The contracts stay in [`crew/roles.md`](../crew/roles.md), [`crew/handoffs.md`](../crew/handoffs.md), [`crew/hitl.md`](../crew/hitl.md). The board shape is [`crew/board.md`](../crew/board.md). Copyable filled feature (different goal): [`crew/board.example.md`](../crew/board.example.md).
 
 ## Pattern vs example host
 
@@ -15,7 +15,7 @@ Nobody here is a runtime. Human is the gate, not a fifth role. If your host cann
 
 **Not this file:** a client playbook, a vendor SDK, a fifth role, or live work on `kiro-crew`. Task IDs below are a **replayable example**. Copy the shape; do not treat `T1` as an open ticket in this repository.
 
-Wrong turns: [`docs/anti-patterns.md`](anti-patterns.md). Other IDE: [`docs/paste-into-host.md`](paste-into-host.md).
+Wrong turns: [`docs/anti-patterns.md`](anti-patterns.md). Other IDE: [`docs/paste-into-host.md`](paste-into-host.md). Copy the card: [`crew/board.example.md`](../crew/board.example.md).
 
 ---
 
@@ -319,9 +319,9 @@ Same four roles. Do not copy these kits into `crew/`. Paste table: [`docs/paste-
 ## Replay
 
 1. Copy [`docs/paste-into-host.md`](paste-into-host.md) into your host (Kiro or otherwise).
-2. Planner fills a **new** board from [`crew/board.md`](../crew/board.md). Do not reuse the `T1` IDs above as live work unless you mean it.
+2. Planner fills a **new** board from [`crew/board.md`](../crew/board.md) (copy: [`crew/board.example.md`](../crew/board.example.md)). Do not reuse the `T1` IDs above as live work unless you mean it.
 3. Run the hops in order. Persist each payload on the board or the PR.
 4. Stop at Ops → Human. Wait.
 5. If a hop looks like chat, merge-on-green without Reviewer `path:line`, or `decided_by: auto`, stop — [`docs/anti-patterns.md`](anti-patterns.md).
 
-Related: filled board from Stage 1 (different goal) — [`crew/board.example.md`](../crew/board.example.md).
+Related: copyable filled feature (different goal, one sitting) — [`crew/board.example.md`](../crew/board.example.md).
