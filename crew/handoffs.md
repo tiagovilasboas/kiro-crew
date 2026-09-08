@@ -1,6 +1,6 @@
 # Handoffs
 
-Each hop is a **message protocol**: named next owner + typed payload. No silent handoff. Write the live card on [`board.md`](board.md). Board shape: [`board.example.md`](board.example.md). Full loop with filled payloads: [`docs/walkthrough.md`](../docs/walkthrough.md).
+Each hop is a **message protocol**: named next owner + typed payload. No silent handoff. Write the live card on [`board.md`](board.md). Copyable filled feature: [`board.example.md`](board.example.md). Full loop with filled payloads: [`docs/walkthrough.md`](../docs/walkthrough.md).
 
 Pattern references: [orchestrator → workers](https://www.anthropic.com/engineering/building-effective-agents), [task expected output](https://docs.crewai.com), [named conversation handoff](https://microsoft.github.io/autogen/).
 
@@ -18,7 +18,9 @@ Pattern references: [orchestrator → workers](https://www.anthropic.com/enginee
 
 Rule: if a hop has no owner or no expected output, stop and fix the board before continuing.
 
-## Example payloads (same goal as `board.example.md`)
+## Example payloads (protocol fragments)
+
+Paste-into-host starter snippets. The copyable filled feature (different goal) is [`board.example.md`](board.example.md).
 
 ### Planner → Implementer (T1)
 
@@ -89,6 +91,7 @@ One-line index. Filled wrong/right cards: [`docs/anti-patterns.md`](../docs/anti
 |---|---|
 | Silent handoff ("just fix it", no card) | Planner fills board first; named `next_owner` + payload |
 | Reviewer says "LGTM" in chat only | Persist verdict + residual risks on the board or PR |
+| Reviewer `done` on the board with no locator | Persist `path:line` or LGTM + residual risks |
 | Merge-on-green | HITL still required for default-branch merge |
 | Invent approval (`decided_by: auto`) | Human → Ops with `decision` + `decided_by`; silence waits |
 | Two Implementer tasks in flight, one PR | One task → one reviewable change unless Planner says otherwise |
