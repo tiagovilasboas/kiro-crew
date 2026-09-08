@@ -6,14 +6,16 @@ This file is the movie. The contracts stay in [`crew/roles.md`](../crew/roles.md
 
 ## Pattern vs example host
 
-| Layer | In this walkthrough |
-|---|---|
-| **Pattern** | Planner → Implementer → Reviewer → (rework) → Ops → Human → Ops resumes |
-| **Example host** | Kiro (this repo’s name). Paste the same cards into any agentic IDE. |
+| | **Pattern** | **Example host** |
+|---|---|---|
+| Loop | Planner → Implementer → Reviewer → (rework) → Ops → Human → Ops resumes | Kiro (this repo’s name). Same cards paste into any agentic IDE. |
+| File home | `crew/` — roles, hops, HITL, board | Skills / steerings / vendor configs — **outside** `crew/` |
 
-Nobody here is a runtime. If your host cannot persist a board, write the card somewhere a human can still read it tomorrow. Silent chat is not a handoff.
+Nobody here is a runtime. Human is the gate, not a fifth role. If your host cannot persist a board, write the card somewhere a human can still read it tomorrow.
 
 **Not this file:** a client playbook, a vendor SDK, a fifth role, or live work on `kiro-crew`. Task IDs below are a **replayable example**. Copy the shape; do not treat `T1` as an open ticket in this repository.
+
+Wrong turns (silent handoff, merge-on-green, invent approval): [`docs/anti-patterns.md`](anti-patterns.md).
 
 ---
 
@@ -299,7 +301,7 @@ reason: T1 has no done_when
 
 - This repo documents a crew. It does not spawn Planner for you.
 - Kiro is an example host. If you copy-paste Kiro skill paths into `crew/`, you turned a pattern into a lock-in.
-- Four roles are enough until this loop is boring. A “Researcher” or “QA” role is usually Planner or Reviewer with extra homework.
+- Four roles are enough until this loop is boring. A “Researcher” or “QA” role is usually Planner or Reviewer with extra homework — see [`docs/anti-patterns.md`](anti-patterns.md).
 - Docs-only still HITL. The habit dies the first time someone merges because “it is only markdown”.
 - Residual risk on LGTM is not decoration. Ops must copy it onto the interrupt.
 
@@ -311,5 +313,6 @@ reason: T1 has no done_when
 2. Planner fills a **new** board from [`crew/board.md`](../crew/board.md). Do not reuse the `T1` IDs above as live work unless you mean it.
 3. Run the hops in order. Persist each payload on the board or the PR.
 4. Stop at Ops → Human. Wait.
+5. If a hop looks like chat, merge-on-green, or `decided_by: auto`, stop — [`docs/anti-patterns.md`](anti-patterns.md).
 
 Related: filled board from Stage 1 (different goal) — [`crew/board.example.md`](../crew/board.example.md).

@@ -35,6 +35,6 @@ Add a paste-into-host starter and a filled board example so a developer can run 
 
 ## Notes
 
-- Pattern layer stays in `crew/`. Host paste lives in `docs/paste-into-host.md`.
+- Pattern layer stays in `crew/`. Host paste lives in `docs/paste-into-host.md`. Wrong turns: [`docs/anti-patterns.md`](../docs/anti-patterns.md).
 - Web pattern refs only (Anthropic orchestrator/workers, CrewAI tasks, AutoGen handoff, LangGraph interrupt) — see CONTRIBUTING.
 - Next owner after human approve: Ops merges; Planner closes the board goal.

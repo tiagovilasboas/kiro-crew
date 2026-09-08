@@ -1,6 +1,6 @@
 # Paste into your host
 
-Short starter for any agentic IDE. **Kiro is an example host**, not a requirement. Keep contracts in your copy of `crew/`; put vendor agent configs outside `crew/`.
+Short starter for any agentic IDE. **Kiro is an example host**, not a requirement. Pattern contracts live in `crew/`. Host skills and vendor agent configs stay **outside** `crew/`.
 
 ## Pattern (copy this)
 
@@ -36,6 +36,7 @@ If unsure → escalate. Do not invent approval. No answer ⇒ wait.
 - Client playbooks, private runbooks, or secret material
 - Framework SDK code as if this repo depended on it
 - Extra roles “for clarity” before the four-role loop is working
+- Silent chat as a handoff, merge because CI is green, or `decided_by: auto` — see [`docs/anti-patterns.md`](anti-patterns.md)
 
 ## Refs (patterns only)
 
