@@ -27,6 +27,18 @@ Four roles only unless you prove a gap:
 4. Reviewer never merges; Ops never ships on silence.
 5. HITL before: default-branch merge, deploy/publish, secrets/billing/messaging-as-user, deletes.
 
+## Pair with siblings
+
+This paste is the **crew loop**. Sibling kits stay **outside** `crew/` — pair them; do not absorb them into a second architecture repo. Kiro remains an example host.
+
+| Need | Sibling | Pairing |
+|---|---|---|
+| Reviewer AppSec | [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) | Load skills on Reviewer. Findings are `path:line` or silence. |
+| Ops evidence | [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) | Suites, named metrics, markdown reports — not vibes. CI green is still not HITL. |
+| Layer model | [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) | Brain · workers · ops. Swap the host; keep the domain. |
+| Desktop CoS | [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) | Chief-of-staff, specialists, shared computer. Those labels are that kit — not extra seats here. |
+| Curated filter | [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) | MCP · harness · agent security. Decision filter, not a crew. |
+
 ## Minimal HITL line (pin this)
 
 ```
@@ -38,6 +50,7 @@ If unsure → escalate. Do not invent approval. No answer ⇒ wait.
 - Client playbooks, private runbooks, or secret material
 - Framework SDK code as if this repo depended on it
 - Extra roles “for clarity” before the four-role loop is working
+- Sibling kit files into `crew/` (skills, ADRs, evals stay in those repos)
 - Silent chat as a handoff, merge because CI is green, or `decided_by: auto` — see [`docs/anti-patterns.md`](anti-patterns.md)
 
 ## Refs (patterns only)
