@@ -78,7 +78,7 @@ decided_by:          # human fills
 if_no_answer: wait — do not merge
 ```
 
-Ops does not treat “it was green yesterday” as a skip of Reviewer, and does not merge on silence.
+Ops does not treat “it was green yesterday” as a skip of Reviewer, and does not merge on silence. **Crew without evidence** is the same skip: merge-on-green without Reviewer `path:line` (CI status, no locator, no suite). Pair Reviewer with AppSec skills and Ops with suites — not vibes. HITL still waits.
 
 ---
 
