@@ -83,10 +83,13 @@ Silence is not this hop. A full reject/defer + rework loop: [`docs/walkthrough.m
 
 ## Anti-patterns
 
+One-line index. Filled wrong/right cards: [`docs/anti-patterns.md`](../docs/anti-patterns.md).
+
 | Anti-pattern | Fix |
 |---|---|
-| "Implementer, just fix it" with no card | Planner fills board first |
+| Silent handoff ("just fix it", no card) | Planner fills board first; named `next_owner` + payload |
 | Reviewer says "LGTM" in chat only | Persist verdict + residual risks on the board or PR |
-| Ops merges because CI is green | HITL still required for default-branch merge |
+| Merge-on-green | HITL still required for default-branch merge |
+| Invent approval (`decided_by: auto`) | Human → Ops with `decision` + `decided_by`; silence waits |
 | Two Implementer tasks in flight, one PR | One task → one reviewable change unless Planner says otherwise |
 | Implementer guesses a missing done-when | Hop back to Planner; do not invent acceptance |
