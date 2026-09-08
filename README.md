@@ -22,22 +22,24 @@ Contracts live in `crew/`. To drop the pattern into another agentic IDE, start f
 | **Reviewer** | Diff vs guardrails | Comment only |
 | **Ops** | CI, evals, ship checklist | Yes → HITL |
 
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · end-to-end walkthrough: [`docs/walkthrough.md`](docs/walkthrough.md) · anti-patterns: [`docs/anti-patterns.md`](docs/anti-patterns.md)
+Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md)
 
 ## Start
 
-1. Read the end-to-end loop once: [`docs/walkthrough.md`](docs/walkthrough.md) (Planner → Implementer → Reviewer → Ops → Human, filled payloads). Wrong turns: [`docs/anti-patterns.md`](docs/anti-patterns.md).
-2. Pick a goal (one sentence).
-3. Planner fills [`crew/board.md`](crew/board.md) (shape reference: [`crew/board.example.md`](crew/board.example.md)).
-4. Implementer works one task; Reviewer returns findings with `path:line` or LGTM.
-5. Ops ships only after HITL on privileged writes.
-6. Optional: paste the starter from [`docs/paste-into-host.md`](docs/paste-into-host.md) into your host.
+| | |
+|---|---|
+| Happy path | [`docs/walkthrough.md`](docs/walkthrough.md) — Planner → Implementer → Reviewer → Ops → Human |
+| Wrong turns | [`docs/anti-patterns.md`](docs/anti-patterns.md) — silent handoff · merge-on-green · invent approval |
+| Other IDE | [`docs/paste-into-host.md`](docs/paste-into-host.md) — four roles + fail-closed HITL |
+
+One-sentence goal → Planner fills [`crew/board.md`](crew/board.md) (shape: [`crew/board.example.md`](crew/board.example.md)) → one task → Reviewer `path:line` or LGTM → Ops ships only after HITL.
 
 ## Related
 
-- [kiro-playbook](https://github.com/tiagovilasboas/kiro-playbook) · [kiro-tour-voomp](https://github.com/tiagovilasboas/kiro-tour-voomp)
+- [kiro-playbook](https://github.com/tiagovilasboas/kiro-playbook) — host skills · steerings · hooks
+- [kiro-tour-voomp](https://github.com/tiagovilasboas/kiro-tour-voomp) — Kiro host tour
 - [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai)
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — MCP · harness · HITL
 - Pattern refs (not dependencies): [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [CrewAI docs](https://docs.crewai.com) · [AutoGen](https://microsoft.github.io/autogen/) · [LangGraph HITL](https://langchain-ai.github.io/langgraph/)
 
 ## Contributing
