@@ -36,11 +36,15 @@ One-sentence goal → Planner fills [`crew/board.md`](crew/board.md) (shape: [`c
 
 ## Related
 
-- [kiro-playbook](https://github.com/tiagovilasboas/kiro-playbook) — host skills · steerings · hooks
-- [kiro-tour-voomp](https://github.com/tiagovilasboas/kiro-tour-voomp) — Kiro host tour
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — brain · workers · ops
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — MCP · harness · HITL
-- Pattern refs (not dependencies): [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [CrewAI docs](https://docs.crewai.com) · [AutoGen](https://microsoft.github.io/autogen/) · [LangGraph HITL](https://langchain-ai.github.io/langgraph/)
+This repo is the crew pattern. Siblings are scoped kits — not extra crew seats and not a Kiro lock-in.
+
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — Curated short list: MCP · harness · agent security. Decision filter, not a crew.
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, markdown reports. Measure; do not train.
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain.
+- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop assistant OS: chief-of-staff, specialists, shared computer, connectors.
+
+Pattern refs (not dependencies): [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [CrewAI docs](https://docs.crewai.com) · [AutoGen](https://microsoft.github.io/autogen/) · [LangGraph HITL](https://langchain-ai.github.io/langgraph/)
 
 ## Contributing
 
