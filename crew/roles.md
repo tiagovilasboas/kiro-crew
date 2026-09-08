@@ -2,7 +2,7 @@
 
 Four roles. Map them onto any agentic IDE. Pattern references (not dependencies): [orchestrator / workers](https://www.anthropic.com/engineering/building-effective-agents), [crew roles + tasks](https://docs.crewai.com), [conversation handoff](https://microsoft.github.io/autogen/), [HITL interrupts](https://langchain-ai.github.io/langgraph/).
 
-Each role keeps three things obvious: **job**, **objective**, **write boundary**. Prefer denser contracts over new role names.
+Each role keeps three things obvious: **job**, **objective**, **write boundary**. Prefer denser contracts over new role names. Four roles only — inventing Researcher / QA is an anti-pattern ([`docs/anti-patterns.md`](../docs/anti-patterns.md)).
 
 ---
 

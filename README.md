@@ -6,10 +6,10 @@ Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agen
 
 ## Pattern vs host
 
-| Layer | Meaning |
-|---|---|
-| **Pattern** | Orchestrator (Planner) → workers (Implementer / Ops) → evaluator (Reviewer) → human gate |
-| **Example host** | Kiro (this repo’s name). Skills and steerings live in whatever the host provides. |
+| | **Pattern** | **Example host** |
+|---|---|---|
+| What | Orchestrator (Planner) → workers (Implementer / Ops) → evaluator (Reviewer) → human gate | Kiro (this repo’s name). Same cards paste into any agentic IDE. |
+| File home | `crew/` | Skills and steerings — **outside** `crew/` |
 
 Contracts live in `crew/`. To drop the pattern into another agentic IDE, start from [`docs/paste-into-host.md`](docs/paste-into-host.md).
 
@@ -22,11 +22,11 @@ Contracts live in `crew/`. To drop the pattern into another agentic IDE, start f
 | **Reviewer** | Diff vs guardrails | Comment only |
 | **Ops** | CI, evals, ship checklist | Yes → HITL |
 
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · end-to-end walkthrough: [`docs/walkthrough.md`](docs/walkthrough.md)
+Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · filled example: [`crew/board.example.md`](crew/board.example.md) · end-to-end walkthrough: [`docs/walkthrough.md`](docs/walkthrough.md) · anti-patterns: [`docs/anti-patterns.md`](docs/anti-patterns.md)
 
 ## Start
 
-1. Read the end-to-end loop once: [`docs/walkthrough.md`](docs/walkthrough.md) (Planner → Implementer → Reviewer → Ops → Human, filled payloads).
+1. Read the end-to-end loop once: [`docs/walkthrough.md`](docs/walkthrough.md) (Planner → Implementer → Reviewer → Ops → Human, filled payloads). Wrong turns: [`docs/anti-patterns.md`](docs/anti-patterns.md).
 2. Pick a goal (one sentence).
 3. Planner fills [`crew/board.md`](crew/board.md) (shape reference: [`crew/board.example.md`](crew/board.example.md)).
 4. Implementer works one task; Reviewer returns findings with `path:line` or LGTM.

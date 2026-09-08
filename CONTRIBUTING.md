@@ -11,12 +11,13 @@ crew/hitl.md            fail-closed human gates
 crew/board.md           blank task-card template
 crew/board.example.md   filled board walkthrough
 docs/walkthrough.md     end-to-end hop-by-hop run (filled payloads)
+docs/anti-patterns.md   silent handoff · merge-on-green · invent approval
 docs/paste-into-host.md short paste starter for any host
 ```
 
 ## What belongs here
 
-Improvements to the crew contracts above — clearer jobs, explicit message contracts, stricter gates, better examples, a clearer end-to-end walkthrough, and a clearer paste starter.
+Improvements to the crew contracts above — clearer jobs, explicit message contracts, stricter gates, better examples, a clearer end-to-end walkthrough, a clearer paste starter, and concrete anti-patterns (not a new role).
 
 This repo is **not** a vendor SDK, a prompt dump, or a client playbook. Do not add framework-specific APIs, secrets, or private process detail.
 
@@ -59,7 +60,7 @@ Treat each hop as a **message protocol**, not a vibe:
 | Ops → Human | Merge / deploy ask (HITL) |
 | Human → Ops | Explicit `decision` + `decided_by` (never invent) |
 
-Rule: no silent handoff. Write the card on `crew/board.md`. If a hop has no owner or no expected output, the docs are incomplete. A full filled run lives in `docs/walkthrough.md`.
+Rule: no silent handoff. Write the card on `crew/board.md`. If a hop has no owner or no expected output, the docs are incomplete. A full filled run lives in `docs/walkthrough.md`. Wrong/right cards for silent handoff, merge-on-green, and invented approval: `docs/anti-patterns.md`. Do not grow that page into a playbook.
 
 ## How to improve HITL (`crew/hitl.md`)
 
@@ -87,4 +88,5 @@ git checkout -b docs/clarify-reviewer-handoff
 - [ ] Each touched role still has job, objective, and write boundary
 - [ ] Each touched hop names the next owner and the payload
 - [ ] HITL stays fail-closed; no implied auto-approve
+- [ ] Four roles only (Human is the gate, not a crew seat)
 - [ ] No client IP, no vendor lock-in, no new framework code
