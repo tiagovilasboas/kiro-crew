@@ -15,7 +15,7 @@ Nobody here is a runtime. Human is the gate, not a fifth role. If your host cann
 
 **Not this file:** a client playbook, a vendor SDK, a fifth role, or live work on `kiro-crew`. Task IDs below are a **replayable example**. Copy the shape; do not treat `T1` as an open ticket in this repository.
 
-Wrong turns (silent handoff, merge-on-green, invent approval): [`docs/anti-patterns.md`](anti-patterns.md).
+Wrong turns: [`docs/anti-patterns.md`](anti-patterns.md). Other IDE: [`docs/paste-into-host.md`](paste-into-host.md).
 
 ---
 

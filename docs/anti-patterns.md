@@ -1,6 +1,6 @@
 # Crew anti-patterns
 
-Companion to [`docs/walkthrough.md`](walkthrough.md). Contracts stay in [`crew/roles.md`](../crew/roles.md), [`crew/handoffs.md`](../crew/handoffs.md), [`crew/hitl.md`](../crew/hitl.md). This page is three ways hosts skip the protocol.
+Companion to [`docs/walkthrough.md`](walkthrough.md) (happy path). Other IDE: [`docs/paste-into-host.md`](paste-into-host.md). Contracts stay in [`crew/roles.md`](../crew/roles.md), [`crew/handoffs.md`](../crew/handoffs.md), [`crew/hitl.md`](../crew/hitl.md). This page is three ways hosts skip the protocol.
 
 Same example goal as the walkthrough (`SECURITY.md`). Copy the **shape**. Do not treat these cards as live work on this repo.
 

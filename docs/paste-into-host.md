@@ -2,6 +2,8 @@
 
 Short starter for any agentic IDE. **Kiro is an example host**, not a requirement. Pattern contracts live in `crew/`. Host skills and vendor agent configs stay **outside** `crew/`.
 
+Happy path: [`docs/walkthrough.md`](walkthrough.md). Wrong turns: [`docs/anti-patterns.md`](anti-patterns.md).
+
 ## Pattern (copy this)
 
 ```
