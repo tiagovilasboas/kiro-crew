@@ -28,9 +28,9 @@ Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew
 
 | | |
 |---|---|
-| Happy path | [`docs/walkthrough.md`](docs/walkthrough.md) — Planner → Implementer → Reviewer → Ops → Human |
-| Wrong turns | [`docs/anti-patterns.md`](docs/anti-patterns.md) — silent handoff · merge-on-green · invent approval |
-| Other IDE | [`docs/paste-into-host.md`](docs/paste-into-host.md) — four roles + fail-closed HITL |
+| Happy path | [`docs/walkthrough.md`](docs/walkthrough.md) — Planner → Implementer → Reviewer → Ops → Human; pair with sibling kits |
+| Wrong turns | [`docs/anti-patterns.md`](docs/anti-patterns.md) — silent handoff · merge-on-green · invent approval · crew without evidence |
+| Other IDE | [`docs/paste-into-host.md`](docs/paste-into-host.md) — four roles + fail-closed HITL + sibling kits |
 
 One-sentence goal → Planner fills [`crew/board.md`](crew/board.md) (shape: [`crew/board.example.md`](crew/board.example.md)) → one task → Reviewer `path:line` or LGTM → Ops ships only after HITL.
 
