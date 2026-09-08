@@ -90,6 +90,8 @@ Implementer must not paste live secrets into chat. Ops opens HITL: "rotate key X
 
 ## Anti-patterns
 
+Filled wrong/right cards (merge-on-green, invent approval): [`docs/anti-patterns.md`](../docs/anti-patterns.md).
+
 | Anti-pattern | Correct behavior |
 |---|---|
 | "CI green ⇒ merge" | Interrupt; wait for human |
