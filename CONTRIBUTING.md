@@ -1,92 +1,75 @@
 # Contributing
 
-This repository documents a **harness-agnostic** multi-agent crew: roles, handoffs, and human-in-the-loop (HITL) gates. Kiro is one example host. The same pattern should map onto any agentic IDE.
+This repository is the **Kiro host adapter**. Contributing language for this file, issue forms, and pull requests is **English**. Commands and paths stay in English fences.
 
-Contributing language for this file, issue forms, and pull requests is **English**. Commands and paths stay in English fences.
+Generic brain · workers · ops belongs in [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture). Desktop chief-of-staff belongs in [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture).
 
 ```
-crew/roles.md           who does what, and who may write
-crew/handoffs.md        how work moves between roles
-crew/hitl.md            fail-closed human gates
-crew/board.md           blank task-card template
-crew/board.example.md   filled feature board a peer can copy (Planner → Human)
-docs/walkthrough.md     end-to-end hop-by-hop run (filled payloads); pair with sibling kits
-docs/anti-patterns.md   silent handoff · merge-on-green · invent approval · crew without evidence · board without Reviewer evidence
-docs/paste-into-host.md short paste starter for any host; pair with sibling kits
+docs/paste-into-kiro.md     Kiro paste steps
+docs/why-not-jarvis.md      repo choice
+pack/steering/              copy into .kiro/steering/
+pack/hooks/                 copy into .kiro/hooks/
+crew/                       Kiro mapping + board
+examples/                   checked handoff envelopes
+scripts/                    fixture checker (Node, zero deps)
 ```
 
 ## What belongs here
 
-Improvements to the crew contracts above — clearer jobs, explicit message contracts, stricter gates, better examples, a clearer end-to-end walkthrough, a clearer paste starter, and concrete anti-patterns (not a new role).
+Kiro-delta only:
 
-This repo is **not** a vendor SDK, a prompt dump, or a client playbook. Do not add framework-specific APIs, secrets, or private process detail.
+- Clearer paste steps for steering, hooks, or specs
+- Tighter Kiro constraints (inclusion modes, hook block codes, spec vs board)
+- Fixture field changes that stay fail-closed
+- Board rows that name a Kiro persist location
+
+A useful change is concrete: one extra constraint, one pack file, one fixture field. Not a new role and not a restated ADR.
+
+## What does not belong here
+
+- Vendor-agnostic layer theory (open a jarvis ADR)
+- Desktop CoS / shared-computer work (open a grok-bot PR)
+- Client playbooks, secrets, or private process
+- A fifth crew seat (Human is the gate, not a role)
 
 ## Quality bar
 
-Keep the crew **simple, composable, and inspectable**. Public multi-agent materials converge on the same bar; use them as pattern references, not as dependencies:
+Keep the adapter **small and checkable**.
 
-| Pattern | What to copy into our docs |
-|---|---|
-| [Orchestrator / workers](https://www.anthropic.com/engineering/building-effective-agents) | Planner decomposes; workers stay in scope; show the plan. Add complexity only when it measurably helps. |
-| [Crew roles + tasks](https://docs.crewai.com) | Each role has a job and an objective. Each task has an owner, a description, and an **expected output**. Sequential vs hierarchical process is explicit. |
-| [Conversation / sequential handoff](https://microsoft.github.io/autogen/) | Named next hop. Typed payload. No silent handoff. |
-| [HITL interrupts](https://langchain-ai.github.io/langgraph/) | Pause before privileged actions. Persist the ask. Resume only with an explicit human decision. Do not invent approval. |
+- Steering files stay short. Always-on steering is for Kiro constraints, not a crew manifesto.
+- Hooks use the v1 JSON schema (`.kiro/hooks/*.json`). A `command` action that exits `2` may block `PreToolUse` / `UserPromptSubmit` / `PreTaskExec`. Hooks do not fill `decision` or `decided_by`.
+- Custom agents do not auto-load steering. The pack notes the `resources` glob.
+- Privileged writes without `"hitl": true` must fail `scripts/validate-handoff.js`.
 
-A useful change is **concrete**: one extra rule, one example card, one `path:line` review habit — not a new abstraction.
+## How to improve the fixture
 
-## How to improve roles (`crew/roles.md`)
+Required envelope fields: `task_id`, `next_owner`, `action`, `target`, `hitl`.
 
-For each role, keep three things obvious (the crew-style contract, vendor-neutral):
+Privileged `action` values (`merge`, `deploy`, `secret_use`, `delete`) also need `blast_radius`, `rollback`, and `hitl: true`. `decided_by: auto` is always invalid.
 
-1. **Job** — one sentence (Planner decomposes; Implementer writes in scope; Reviewer evaluates; Ops ships).
-2. **Objective** — what “done” looks like for that role.
-3. **Write boundary** — writes vs comment-only, and whether HITL is required.
+```
+# both behaviors must hold
+sh scripts/check-fixtures.sh
+```
 
-Planner is the orchestrator: it owns the goal and the board, and it does **not** edit production code. Reviewer is the evaluator loop: findings with evidence, or explicit LGTM — never a silent merge.
-
-Prefer denser roles (acceptance criteria, out-of-scope, tools) over new role names. Four roles is enough unless a gap is proven.
-
-## How to improve handoffs (`crew/handoffs.md`)
-
-Treat each hop as a **message protocol**, not a vibe:
-
-| Hop | Payload (minimum) |
-|---|---|
-| Planner → Implementer | Task card: scope, likely files, done-when |
-| Implementer → Planner | Why the card is unworkable (missing done-when / scope) |
-| Implementer → Reviewer | Diff + what / why / risk |
-| Reviewer → Implementer | Findings with `path:line`, or LGTM |
-| Reviewer → Ops | Approved change + residual risks |
-| Ops → Human | Merge / deploy ask (HITL) |
-| Human → Ops | Explicit `decision` + `decided_by` (never invent) |
-
-Rule: no silent handoff. Write the card on `crew/board.md`. If a hop has no owner or no expected output, the docs are incomplete. A full filled run lives in `docs/walkthrough.md`. Wrong/right cards for silent handoff, merge-on-green, and invented approval: `docs/anti-patterns.md`. Do not grow that page into a playbook.
-
-## How to improve HITL (`crew/hitl.md`)
-
-Fail closed. A human is required before merge to the default branch, publish/deploy, secrets/billing/messaging as the user, or deleting data/repos.
-
-Reads and local drafts may be optimistic. If unsure, **escalate** — do not invent approval.
-
-When you add a gate, say: **what** pauses, **who** resumes, and **what happens if nobody answers** (wait; do not proceed). That is the interrupt/resume contract.
+If you change the checker, update both fixtures so CI still proves reject-on-missing-HITL.
 
 ## Propose a change
 
-1. Open an issue with the **Improve crew** form (`.github/ISSUE_TEMPLATE/improve-crew.yml`).
-2. Point at the file and the gap (missing owner, vague done-when, gate that can be skipped).
-3. Open a pull request that updates the smallest set of docs. Use `.github/PULL_REQUEST_TEMPLATE.md`.
+1. Open an issue with the **Improve Kiro adapter** form (`.github/ISSUE_TEMPLATE/improve-crew.yml`).
+2. Point at the Kiro-delta gap (paste step, steering/hook constraint, skippable HITL field).
+3. Open a pull request that updates the smallest set of files. Use `.github/PULL_REQUEST_TEMPLATE.md`.
 
 ```
-# Issue first (or link an existing one), then a focused PR
-git checkout -b docs/clarify-reviewer-handoff
+git checkout -b docs/clarify-kiro-hook-block
 ```
 
 ## Before you open a PR
 
 - [ ] English prose; English commands and paths
-- [ ] Change is limited to crew docs (or Stage 0 hygiene files)
-- [ ] Each touched role still has job, objective, and write boundary
-- [ ] Each touched hop names the next owner and the payload
+- [ ] Change is Kiro-delta (or Stage 0 hygiene)
+- [ ] No restated jarvis / grok-bot manifesto
 - [ ] HITL stays fail-closed; no implied auto-approve
-- [ ] Four roles only (Human is the gate, not a crew seat)
-- [ ] No client IP, no vendor lock-in, no new framework code
+- [ ] `sh scripts/check-fixtures.sh` exits 0
+- [ ] Four roles only (Human is the gate)
+- [ ] No client IP; pack files stay Kiro-only

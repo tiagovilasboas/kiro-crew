@@ -1,6 +1,6 @@
 ## Why
 
-What gap in roles, handoffs, HITL, or repo hygiene does this close?
+What Kiro-delta gap does this close (paste step, steering/hook constraint, board persist, fixture field)?
 
 ## What
 
@@ -11,11 +11,11 @@ What files changed, in one short list?
 Commands and paths in English:
 
 ```
-# Example
-ls crew/roles.md crew/handoffs.md crew/hitl.md crew/board.md
+sh scripts/check-fixtures.sh
 ```
 
-- [ ] Docs stay harness-agnostic (Kiro is an example host, not a lock-in)
+- [ ] Change is Kiro-delta (not a restated jarvis / grok-bot manifesto)
 - [ ] Handoffs name the next owner and the payload
 - [ ] HITL stays fail-closed (no implied auto-approve)
-- [ ] No client IP and no vendor SDK code
+- [ ] Privileged writes without `hitl: true` still fail the checker
+- [ ] No client IP; pack files stay Kiro-only

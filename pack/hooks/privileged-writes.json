@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "privileged-write-hitl",
+      "trigger": "UserPromptSubmit",
+      "matcher": "(?i)(merge to (main|master|default)|deploy|publish package|delete repo|rotate secret)",
+      "action": {
+        "type": "agent",
+        "prompt": "This prompt looks like a privileged write. Stop unless the board has a handoff envelope with hitl: true, blast_radius, and rollback. Do not fill decision or decided_by. If those human fields are empty, persist the interrupt and wait."
+      }
+    }
+  ]
+}

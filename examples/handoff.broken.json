@@ -1,0 +1,7 @@
+{
+  "task_id": "T3",
+  "next_owner": "Ops",
+  "action": "merge",
+  "target": "main",
+  "hitl": false
+}
