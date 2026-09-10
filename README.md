@@ -1,54 +1,58 @@
 # Kiro Crew
 
-Multi-agent crew pattern — roles, handoffs, HITL. Kiro is the example host.
+This repo is the Kiro-specific paste pack / host adapter. Generic brain · workers · ops lives in [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture). The desktop chief-of-staff pattern lives in [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture). Here we only keep what differs for Kiro.
 
 Maintainer: [Tiago Montanha](https://github.com/tiagovilasboas) · Staff · Agentic AI
 
-## Pattern vs host
+## When to use which
 
-| | **Pattern** | **Example host** |
-|---|---|---|
-| What | Orchestrator (Planner) → workers (Implementer / Ops) → evaluator (Reviewer) → human gate | Kiro (this repo’s name). Same cards paste into any agentic IDE. |
-| File home | `crew/` | Skills and steerings — **outside** `crew/` |
-
-Contracts live in `crew/`. To drop the pattern into another agentic IDE, start from [`docs/paste-into-host.md`](docs/paste-into-host.md).
-
-## Crew
-
-| Role | Job | Writes? |
-|---|---|---|
-| **Planner** | Decompose goal → tasks | Board only |
-| **Implementer** | Code / docs in scope | Yes → review |
-| **Reviewer** | Diff vs guardrails | Comment only |
-| **Ops** | CI, evals, ship checklist | Yes → HITL |
-
-Details: [`crew/roles.md`](crew/roles.md) · handoffs: [`crew/handoffs.md`](crew/handoffs.md) · HITL: [`crew/hitl.md`](crew/hitl.md) · blank board: [`crew/board.md`](crew/board.md) · copyable board: [`crew/board.example.md`](crew/board.example.md)
-
-## Start
-
-| | |
+| Repo | Use it for |
 |---|---|
-| Happy path | [`docs/walkthrough.md`](docs/walkthrough.md) — Planner → Implementer → Reviewer → Ops → Human; pair with sibling kits |
-| Wrong turns | [`docs/anti-patterns.md`](docs/anti-patterns.md) — silent handoff · merge-on-green · invent approval · crew without evidence · board without Reviewer evidence |
-| Other IDE | [`docs/paste-into-host.md`](docs/paste-into-host.md) — four roles + fail-closed HITL + sibling kits |
+| [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) | Vendor-agnostic layers, ADRs, host swap |
+| [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) | Desktop CoS, specialists, shared computer |
+| **This repo** | Paste into Kiro: steering, hooks, spec-shaped board, one checked handoff |
 
-One-sentence goal → Planner fills [`crew/board.md`](crew/board.md) (copy: [`crew/board.example.md`](crew/board.example.md)) → one task → Reviewer `path:line` or LGTM → Ops ships only after HITL.
+Honest split: [`docs/why-not-jarvis.md`](docs/why-not-jarvis.md).
+
+## Paste into Kiro
+
+1. Read [`docs/paste-into-kiro.md`](docs/paste-into-kiro.md).
+2. Copy `pack/steering/` → `.kiro/steering/` and `pack/hooks/` → `.kiro/hooks/` in the target workspace.
+3. Planner fills [`crew/board.md`](crew/board.md) (copy: [`crew/board.example.md`](crew/board.example.md)). Prefer a Kiro spec under `.kiro/specs/` when the host already uses specs.
+4. Persist every hop as JSON in the fixture shape. Privileged writes need `"hitl": true`.
+
+Kiro mapping (not a second architecture): [`crew/roles.md`](crew/roles.md) · hops: [`crew/handoffs.md`](crew/handoffs.md) · HITL binding: [`crew/hitl.md`](crew/hitl.md).
+
+## Checked artifact
+
+CI does not re-test multi-agent theory. It checks one handoff envelope.
+
+| File | Expected |
+|---|---|
+| [`examples/handoff.fixed.json`](examples/handoff.fixed.json) | Valid privileged write with HITL |
+| [`examples/handoff.broken.json`](examples/handoff.broken.json) | Rejected: merge without `hitl: true` |
+
+```
+sh scripts/check-fixtures.sh
+```
+
+Validator: [`scripts/validate-handoff.js`](scripts/validate-handoff.js) (Node, zero deps). Workflow: [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
 ## Related
 
-This repo is the crew pattern. Siblings are scoped kits — not extra crew seats and not a Kiro lock-in.
+Siblings, not copies of this adapter:
 
-- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) — Curated short list: MCP · harness · agent security. Decision filter, not a crew.
-- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) — AppSec PR review: skills, runbooks, `path:line` or silence.
-- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) — Evals: suites, named metrics, markdown reports. Measure; do not train.
-- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) — Reference architecture: brain · workers · ops. Swap the host, keep the domain.
-- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) — Desktop assistant OS: chief-of-staff, specialists, shared computer, connectors.
+- [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture) - brain · workers · ops
+- [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture) - desktop CoS
+- [agentic-code-review](https://github.com/tiagovilasboas/agentic-code-review) - Reviewer `path:line` skills
+- [agent-measurement](https://github.com/tiagovilasboas/agent-measurement) - Ops suites
+- [awesome-agentic-ai](https://github.com/tiagovilasboas/awesome-agentic-ai) - curated filter
 
-Pattern refs (not dependencies): [Anthropic — effective agents](https://www.anthropic.com/engineering/building-effective-agents) · [CrewAI docs](https://docs.crewai.com) · [AutoGen](https://microsoft.github.io/autogen/) · [LangGraph HITL](https://langchain-ai.github.io/langgraph/)
+Kiro refs: [Steering](https://kiro.dev/docs/steering/) · [Hooks](https://kiro.dev/docs/ide/whats-new-v1/hooks/) · [How Kiro works](https://kiro.dev/docs/how-kiro-works/)
 
 ## Contributing
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how to improve roles, handoffs, and HITL docs.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Pattern changes belong in jarvis. Desktop CoS changes belong in grok-bot.
 
 ## License
 
@@ -56,4 +60,4 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) for how to improve roles, handoffs, and
 
 ## AGENTS.md
 
-Agent notes: [`AGENTS.md`](AGENTS.md).
+[`AGENTS.md`](AGENTS.md)

@@ -1,27 +1,36 @@
 # Agents
 
-This repo is a **crew pattern**, not a Kiro-only recipe. Map the same four roles onto any agentic IDE.
+This repository is the **Kiro host adapter** (paste pack). Generic brain · workers · ops lives in [jarvis-architecture](https://github.com/tiagovilasboas/jarvis-architecture). Desktop chief-of-staff lives in [grok-bot-architecture](https://github.com/tiagovilasboas/grok-bot-architecture). Do not restate those patterns here.
 
 ## Layout
 
 ```
-crew/roles.md           Planner · Implementer · Reviewer · Ops
-crew/handoffs.md        explicit hops (owner + payload)
-crew/hitl.md            fail-closed interrupts before privileged writes
-crew/board.md           blank task card the Planner fills
-crew/board.example.md   filled feature board a peer can copy (Planner → Human)
-docs/walkthrough.md     end-to-end Planner → … → Human with filled payloads; pair with sibling kits
-docs/anti-patterns.md   silent handoff · merge-on-green · invent approval · crew without evidence · board without Reviewer evidence
-docs/paste-into-host.md short starter to paste into another host; pair with sibling kits
+docs/paste-into-kiro.md     how to drop the pack into a Kiro workspace
+docs/why-not-jarvis.md      this repo vs jarvis vs grok-bot
+pack/steering/              files to copy into .kiro/steering/
+pack/hooks/                 files to copy into .kiro/hooks/
+crew/roles.md               Kiro surface map only
+crew/handoffs.md            hop persist locations + fixture fields
+crew/hitl.md                Kiro hook / interrupt binding
+crew/board.md               blank Kiro-shaped board
+crew/board.example.md       filled board a peer can copy
+examples/handoff.*.json     one broken + one fixed envelope
+scripts/validate-handoff.js zero-dep Node checker
+scripts/check-fixtures.sh   CI: fixed must pass, broken must fail
 ```
 
-## Pattern vs example host
+## Do
 
-| | **Pattern** | **Example host** |
-|---|---|---|
-| What | Orchestrator (Planner) → workers (Implementer / Ops) → evaluator (Reviewer) → human gate | Kiro (this repo’s name). Same cards paste into any agentic IDE. |
-| File home | `crew/` | Skills and steerings — **outside** `crew/` |
+- Keep edits Kiro-delta: paste steps, steering/hooks constraints, board shape, fixture fields.
+- Point at jarvis for layer theory and ADRs. Point at grok-bot for desktop CoS.
+- Privileged writes (`merge`, `deploy`, `secret_use`, `delete`) require `"hitl": true` plus `blast_radius` and `rollback`.
+- Run `sh scripts/check-fixtures.sh` before you change the fixture or validator.
 
-Do not encode vendor APIs here. If a host needs extra files (agent configs, skills), keep them out of `crew/` and keep the contracts above as the source of truth. Sibling kits (AppSec review, evals, layer model, desktop CoS, curated list) stay outside `crew/` — pair Reviewer with `path:line` skills and Ops with suites; do not absorb those repos here.
+## Do not
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) before changing crew docs. Copyable board: [crew/board.example.md](crew/board.example.md). End-to-end loop: [docs/walkthrough.md](docs/walkthrough.md). Anti-patterns: [docs/anti-patterns.md](docs/anti-patterns.md). Paste starter: [docs/paste-into-host.md](docs/paste-into-host.md).
+- Add a Purpose / Propósito block to the README.
+- Use an em dash character in docs.
+- Re-copy orchestrator/workers, CrewAI, AutoGen, or LangGraph manifesto text.
+- Encode Cursor, Goose, or other host APIs in `pack/`.
+- Invent `decided_by: auto`. Silence means wait.
+- Absorb sibling kits (AppSec skills, evals, desktop CoS) into `crew/`.

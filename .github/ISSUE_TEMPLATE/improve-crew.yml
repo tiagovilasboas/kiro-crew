@@ -1,24 +1,25 @@
-name: Improve crew
-description: Propose a change to roles, handoffs, HITL gates, or the board template.
-title: "[crew] "
+name: Improve Kiro adapter
+description: Propose a change to the Kiro paste pack, steering/hooks constraints, board, or fixture.
+title: "[kiro] "
 labels:
   - documentation
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form to improve the crew pattern. Write in English.
+        Use this form to improve the Kiro host adapter. Write in English.
+        Pattern theory belongs in jarvis-architecture. Desktop CoS belongs in grok-bot-architecture.
         See [CONTRIBUTING.md](https://github.com/tiagovilasboas/kiro-crew/blob/main/CONTRIBUTING.md).
   - type: dropdown
     id: area
     attributes:
       label: Area
-      description: Which crew doc should change?
+      description: Which adapter surface should change?
       options:
-        - roles
-        - handoffs
-        - hitl
+        - paste-into-kiro
+        - steering-or-hooks
         - board
+        - fixture
         - other
     validations:
       required: true
@@ -26,30 +27,30 @@ body:
     id: gap
     attributes:
       label: Gap
-      description: What is missing or ambiguous? (owner, expected output, write boundary, or a skippable HITL gate)
-      placeholder: Reviewer → Ops has no residual-risk field, so Ops cannot decide whether to escalate.
+      description: What Kiro-specific step or field is missing or skippable?
+      placeholder: Custom agents drop steering unless resources is set; the paste page did not say so.
     validations:
       required: true
   - type: textarea
     id: proposal
     attributes:
       label: Proposed change
-      description: Smallest doc edit that closes the gap. Prefer one extra rule or example over a new role.
-      placeholder: Add a required Residual risks line to the Reviewer → Ops hop in crew/handoffs.md.
+      description: Smallest edit that closes the gap. Prefer one constraint or fixture field over a new role.
+      placeholder: Add the resources glob note to docs/paste-into-kiro.md and pack/steering/hitl.md.
     validations:
       required: true
   - type: textarea
     id: pattern
     attributes:
-      label: Pattern reference (optional)
-      description: Public multi-agent / HITL material that motivates the change (orchestrator-workers, sequential handoff, interrupt/resume). Do not paste vendor APIs.
-      placeholder: https://www.anthropic.com/engineering/building-effective-agents (evaluator-optimizer)
+      label: Kiro or sibling reference (optional)
+      description: Link a Kiro docs page or a jarvis ADR. Do not paste vendor APIs for other hosts.
+      placeholder: https://kiro.dev/docs/steering/ (custom agents need resources)
   - type: checkboxes
     id: scope
     attributes:
       label: Scope check
       options:
-        - label: This is a docs/pattern change only (no vendor SDK, no client IP).
+        - label: This is Kiro-delta (not a restated jarvis / grok-bot manifesto).
           required: true
-        - label: HITL stays fail-closed if the change touches gates.
+        - label: HITL stays fail-closed if the change touches gates or the fixture.
           required: false
