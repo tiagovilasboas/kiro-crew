@@ -1,0 +1,11 @@
+{
+  "task_id": "T3",
+  "next_owner": "Human",
+  "action": "merge",
+  "target": "main",
+  "hitl": true,
+  "blast_radius": "Documentation-only merge of the Kiro paste pack. No runtime, no secrets.",
+  "rollback": "Revert the merge commit.",
+  "decision": "",
+  "decided_by": ""
+}
